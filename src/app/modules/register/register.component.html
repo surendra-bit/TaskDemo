@@ -1,0 +1,70 @@
+<div class="card">
+    <h4 class="card-header">Register</h4>
+    <div class="card-body">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="username"> Usernames :</label>
+                <input type="text" formControlName="username" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                    <div *ngIf="f.username.errors.required">customername is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastname">  LastName :</label>
+                <input type="text" formControlName="lastname" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }" />
+                <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+                    <div *ngIf="f.lastname.errors.required">village is required</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email"> Email Id :</label>
+                <input type="text" formControlName="email" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Emaild Id is required</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password :</label>
+                <input type="password" formControlName="password" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary">Register</button>
+                <a class="btn btn-link" (click)="Cancelbtn()">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+            <table class="table table-borderd">
+              <thead>
+                <tr>
+                    <th>S.NO</th>
+                    <th>UserName</th>
+                    <th>LastName</th>
+                    <th>Email</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let x of listdata ; let i = index">
+                    <td>{{x+1}}</td>
+                    <td>{{x.username}}</td>
+                    <td>{{x.lastname}}</td>
+                    <td>{{x.email}}</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+    </div>
+</div>
